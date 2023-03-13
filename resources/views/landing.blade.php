@@ -8,8 +8,22 @@
     <title>Join our office!</title>
 </head>
 <body>
-    <div class="main-container">
-
+    <div class="main-container flex jc-c ai-c">
+        <form class="p br-10 flex col gap">
+            <h1>
+                Hey,<br>
+                join our office!
+            </h1>
+            <span></span>
+            <label>
+                <input type="text"  placeholder="Your name"/>
+            </label>
+            <label>Choose your avatar</label>
+            <div class="avatar-container flex wrap gap" id="avatar-container">
+                <!-- Load avatars -->
+            </div>
+            <button>Join!</button>
+        </form>
     </div>
 </body>
 </html>

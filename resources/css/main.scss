@@ -11,4 +11,47 @@
     -moz-osx-font-smoothing:grayscale;
     -webkit-font-smoothing:antialiased;
     font-family:'Montserrat', sans-serif;
+    color:$color-3;
+}
+
+h1 {
+    line-height:2.1rem;
+}
+
+.main-container {
+    width:100vw;
+    height:100vh;
+}
+
+input, select, textarea {
+    width:100%;
+    padding:10px;
+    border:0;
+    border-radius:10px;
+    resize:none;
+    &:focus {
+        outline:0;
+    }
+}
+
+form {
+    background-color:$color-2;
+    span {
+        width:45px;
+        height:5px;
+        background-color:$color-3;
+        border-radius:10px;
+    }
+    label {
+        font-size:0.9rem;
+    }
+}
+
+button {
+    background-color:$accent-color;
+    color:white;
+    padding:10px;
+    border-radius:10px;
+    border:0;
+    cursor:pointer;
 }
