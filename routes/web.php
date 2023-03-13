@@ -1,7 +1,8 @@
 <?php
 
-use App\Http\Controllers\RouteController;
+use App\Http\Controllers\RoomController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [RouteController::class, 'landing'])->name('landing');
-Route::get('/office', [RouteController::class, 'office'])->name('office');
+Route::get('/', [UserController::class, 'index'])->name('landing');
+Route::get('/office', [RoomController::class, 'index'])->name('office');
