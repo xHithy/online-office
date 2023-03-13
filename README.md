@@ -10,14 +10,14 @@ To remove the hassle of typing ```./vendor/bin/sail``` on every command,
 you can set an alias for it by running ```alias sail='./vendor/bin/sail'```.
 Now you can run every command with the prefix of ```sail```.
 
+### Install vendors
+```zsh
+composer install
+```
+
 ### Sail up the application:
 ```zsh
 ./vendor/bin/sail up
-```
-
-### Install vendors
-```zsh
-./vendor/bin/sail composer install
 ```
 
 ### Run database migrations
