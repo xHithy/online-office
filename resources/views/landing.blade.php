@@ -11,13 +11,11 @@
     <div class="main-container flex jc-c ai-c">
         <form class="p br-10 flex col gap">
             <h1>
-                Hey,<br>
+                <b>Hey,</b><br>
                 join our office!
             </h1>
             <span></span>
-            <label>
-                <input type="text"  placeholder="Your name"/>
-            </label>
+            <input type="text"  placeholder="Your name"/>
             <label>Choose your avatar</label>
             <div class="avatar-container flex wrap gap" id="avatar-container">
                 <!-- Load avatars -->
