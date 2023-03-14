@@ -12,7 +12,10 @@
         "vite": "^4.0.0"
     },
     "dependencies": {
+        "@rollup/plugin-inject": "^5.0.3",
         "jquery": "^3.6.4",
+        "jquery-ui": "^1.13.2",
+        "jquery-ui-dist": "^1.13.2",
         "moment": "^2.29.4",
         "sass": "^1.59.2"
     }
