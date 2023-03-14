@@ -15,7 +15,7 @@ $( document ).ready(() => {
             $(this).removeClass('hovering');
         },
         drop: function(e) {
-            console.log($(this).attr('id'));
+            console.log($(this).attr('class'));
         }
     });
 
