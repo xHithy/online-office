@@ -1,0 +1,83 @@
+@import 'variables';
+
+.room {
+    position:absolute;
+    z-index:2;
+    cursor:pointer;
+    background-color:transparent;
+}
+
+.hovering {
+    background-color: rgba(107, 161, 196, 0.3);
+}
+
+.the-office {
+    top:2.5%;
+    left:9%;
+    width:15%;
+    height:25.5%;
+}
+
+.meeting-room {
+    top:2.5%;
+    left:24%;
+    width:23.5%;
+    height:25.5%;
+}
+
+.desk {
+    top:28.5%;
+    left:1%;
+    width:12%;
+    height:24%;
+}
+
+.silent-room-1 {
+    bottom:16%;
+    left:34%;
+    width:13.5%;
+    height:20%;
+}
+
+.silent-room-2 {
+    bottom:35%;
+    left:54%;
+    width:7.5%;
+    height:9%;
+}
+
+.kitchen {
+    bottom:44.5%;
+    left:47.5%;
+    width:28%;
+    height:16.5%;
+}
+
+.break-room {
+    top:3%;
+    right:1.5%;
+    width:14.8%;
+    height:28%;
+}
+
+.open-office-1 {
+    left:3.5%;
+    top:28%;
+    width:44%;
+    height:55%;
+    display:none;
+}
+
+.open-office-2 {
+    top:31.5%;
+    right:1.5%;
+    width:23%;
+    height:34.5%;
+}
+
+.silent-room-3 {
+    bottom:16.5%;
+    right:1.5%;
+    width:17%;
+    height:17%;
+}

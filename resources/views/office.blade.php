@@ -8,8 +8,24 @@
     <title>The Office</title>
 </head>
 <body>
-    <div class="main-container">
-
+    <div class="main-container flex">
+        <div class="side-container"></div>
+        <div class="office-container flex jc-c ai-c p">
+            <div id="office">
+                <div class="user" id="user" draggable="true"><span>You</span><img src="/avatars/avatar-1.svg" alt=""/></div>
+                <div class="the-office room"></div>
+                <div class="meeting-room room"></div>
+                <div class="desk room"></div>
+                <div class="silent-room-1 room"></div>
+                <div class="silent-room-2 room"></div>
+                <div class="kitchen room"></div>
+                <div class="break-room room"></div>
+                <div class="open-office-1 room"></div>
+                <div class="open-office-2 room"></div>
+                <div class="silent-room-3 room"></div>
+                <img src="/offices/office_base_clean.png" alt=""/>
+            </div>
+        </div>
     </div>
 </body>
 </html>
