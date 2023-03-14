@@ -9,18 +9,19 @@
 </head>
 <body>
     <div class="main-container flex jc-c ai-c">
-        <form class="p br-10 flex col gap">
+        <form class="p br-10 flex col gap" method="POST" action="/api/v1/auth/login">
             <h1>
                 <b>Hey,</b><br>
                 join our office!
             </h1>
             <span></span>
-            <input type="text"  placeholder="Your name"/>
+            <input type="text" placeholder="Your name"/>
             <label>Choose your avatar</label>
+            <input id="avatar_id" hidden/>
             <div class="avatar-container flex wrap gap" id="avatar-container">
                 <!-- Load avatars -->
             </div>
-            <button>Join!</button>
+            <button type="submit">Join!</button>
         </form>
     </div>
 </body>
