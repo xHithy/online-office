@@ -2,6 +2,7 @@ import $ from 'jquery';
 import './bootstrap';
 import '../css/main.scss';
 import './functions/selectAvatar';
+import './office';
 
 // Functions
 import { loadAvatars } from "./functions/loadAvatars";
