@@ -9,13 +9,16 @@ $( document ).ready(() => {
     room.droppable({
         accept: userBlob,
         over: function(e) {
-            $(this).addClass('hovering');
+            let id = $(this).attr('id');
+            office.find(`.room[id=${id}]`).addClass('hovering');
         },
         out: function(e) {
-            $(this).removeClass('hovering');
+            let id = $(this).attr('id');
+            office.find(`.room[id=${id}]`).removeClass('hovering');
         },
         drop: function(e) {
-            console.log($(this).attr('class'));
+            let id = $(this).attr('id');
+            console.log(id);
         }
     });
 
