@@ -13,10 +13,10 @@
             <div class="session-container flex col gap p">
                 <div class="flex gap ai-c">
                     <div class="user-avatar">
-                        <img src="/avatars/avatar-1.svg" alt=""/>
+                        <img src="/avatars/avatar-{{ $avatar_id }}.svg" alt=""/>
                     </div>
                     <div class="flex col">
-                        <span class="name">John Doe</span>
+                        <span class="name">{{ $name }}</span>
                         <span class="session-length">Working for <b>01h 12m</b></span>
                     </div>
                 </div>
@@ -51,7 +51,7 @@
         </div>
         <div class="office-container flex jc-c ai-c p">
             <div id="office">
-                <div class="user" id="user" draggable="true"><span>You</span><img src="/avatars/avatar-1.svg" alt=""/></div>
+                <div class="user" id="user" draggable="true"><span>You</span><img src="/avatars/avatar-{{$avatar_id}}.svg" alt=""/></div>
                 <div class="the-office room" id="1"></div>
                 <div class="meeting-room room" id="7"></div>
                 <div class="desk room" id="10"></div>
