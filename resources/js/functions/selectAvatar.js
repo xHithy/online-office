@@ -5,7 +5,7 @@ export const selectAvatar = ( avatar ) => {
     $( '.avatar' ).attr('class', 'avatar')
 
     let id = $( avatar ).attr('id');
-    $('.avatar_id').val(id);
+    $('#avatar_id').val(id);
     $( avatar ).attr('class', 'avatar selected');
 }
 

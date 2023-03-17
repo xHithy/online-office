@@ -6,6 +6,6 @@ export const loadAvatars = () => {
 
     // Loop through all the avatars
     for(let i = 1; i < avatarCount; i++) {
-        avatarContainer.append('<img class="avatar" src="/avatars/avatar-' + i + '.svg" alt="" onclick="selectAvatar(this)"/>')
+        avatarContainer.append('<img class="avatar" src="/avatars/avatar-' + i + '.svg" id="'+i+'" alt="" onclick="selectAvatar(this)"/>')
     }
 }
