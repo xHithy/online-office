@@ -9,7 +9,46 @@
 </head>
 <body>
     <div class="main-container flex">
-        <div class="side-container"></div>
+        <div class="side-container flex col gap p">
+            <div class="session-container flex col gap p">
+                <div class="flex gap ai-c">
+                    <div class="user-avatar">
+                        <img src="/avatars/avatar-1.svg" alt=""/>
+                    </div>
+                    <div class="flex col">
+                        <span class="name">John Doe</span>
+                        <span class="session-length">Working for <b>01h 12m</b></span>
+                    </div>
+                </div>
+                <form method="POST" action="/api/v1/auth/logout">
+                    <button type="submit">Exit the office</button>
+                </form>
+            </div>
+            <span class="line"></span>
+            <div class="room-container flex col gap p">
+                @foreach($rooms as $room)
+                    <div class="single-room flex jc-sb gap">
+                        <span> {{ $room['room'] }} </span>
+                        <span class="room-capacity"> {{ $room['users_in'] }} / {{ $room['limit'] }}</span>
+                    </div>
+                @endforeach
+            </div>
+            <span class="line"></span>
+            <div class="chat-container flex col gap p">
+                <b>Global chat</b>
+                <div class="chat flex col gap p">
+                    <div class="start flex ai-c gap"><span class="line"></span> This is the start of this chat <span class="line"></span></div>
+                    <div class="message-container">
+                        <span class="message-author">John</span>
+                        <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem maiores optio similique ullam.</span>
+                    </div>
+                </div>
+                <form class="flex gap" method="POST">
+                    <input placeholder="Send a message..." type="text" />
+                    <button class="flex jc-c ai-c" type="submit"><img src="/icons/send.svg" alt=""</button>
+                </form>
+            </div>
+        </div>
         <div class="office-container flex jc-c ai-c p">
             <div id="office">
                 <div class="user" id="user" draggable="true"><span>You</span><img src="/avatars/avatar-1.svg" alt=""/></div>
