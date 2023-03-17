@@ -15,3 +15,21 @@
         box-shadow:rgba(0, 0, 0, 0.16) 0 1px 4px;
     }
 }
+
+.error-container {
+    display:flex;
+    flex-direction:column;
+    padding:10px;
+    color:red;
+    width:320px;
+    background-color: rgba(255, 0, 0, 0.2);
+    border-radius:10px;
+    gap:5px;
+    span {
+        color:red;
+        margin:0;
+        display:flex;
+        width:100%;
+        background-color:transparent;
+    }
+}

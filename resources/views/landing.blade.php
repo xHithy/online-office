@@ -8,16 +8,22 @@
     <title>Join our office!</title>
 </head>
 <body>
-    <div class="main-container flex jc-c ai-c">
+    <div class="main-container flex col jc-c ai-c gap">
+        @if($errors->any())
+            <div class="error-container">
+                <b>Notice!</b>
+                {!! implode('', $errors->all('<span>:message</span>')) !!}
+            </div>
+        @endif
         <form class="p br-10 flex col gap" method="POST" action="/api/v1/auth/login">
             <h1>
                 <b>Hey,</b><br>
                 join our office!
             </h1>
             <span></span>
-            <input type="text" placeholder="Your name"/>
+            <input name="name" type="text" placeholder="Your name"/>
             <label>Choose your avatar</label>
-            <input id="avatar_id" hidden/>
+            <input name="avatar" id="avatar_id" hidden/>
             <div class="avatar-container flex wrap gap" id="avatar-container">
                 <!-- Load avatars -->
             </div>
