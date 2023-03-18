@@ -17,7 +17,7 @@
                     </div>
                     <div class="flex col">
                         <span class="name">{{ $name }}</span>
-                        <span class="session-length">Working for <b>01h 12m</b></span>
+                        <span class="session-length">Working for <b class="time"></b></span>
                     </div>
                 </div>
                 <form method="POST" action="/api/v1/auth/logout">
