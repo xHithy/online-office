@@ -21,7 +21,7 @@
                 join our office!
             </h1>
             <span></span>
-            <input name="name" type="text" placeholder="Your name"/>
+            <input name="name" type="text" placeholder="Your name" value="{{ old('name') }}"/>
             <label>Choose your avatar</label>
             <input name="avatar" id="avatar_id" hidden/>
             <div class="avatar-container flex wrap gap" id="avatar-container">
