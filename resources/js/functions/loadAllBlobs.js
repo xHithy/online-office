@@ -26,11 +26,13 @@ export const loadAllBlobs = () => {
             let AVATAR = locations.user.avatar_id;
             let POS_X = locations.user.posX;
             let POS_Y = locations.user.posY;
+            let ROOM_ID = locations.user.room_id;
             let USER_DATA = `<span>You</span><img src="/avatars/avatar-${AVATAR}.svg" alt=""/>`
 
             $( USER_DATA ).appendTo( '#user' );
             $( USER_BLOB ).css('left', parseInt(POS_X) + '%');
             $( USER_BLOB ).css('top', parseInt(POS_Y) + '%');
+            OFFICE.find(`.room[id=${ROOM_ID}]`).addClass('hovering');
         }
     });
 }
