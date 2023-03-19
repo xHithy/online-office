@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\View\View;
@@ -52,15 +53,19 @@ class UserController extends Controller
     public static function move()
     {
         User::query()->where('id', session('user'))->update([
-           'posX' => request('posX'),
-           'posY' => request('posY'),
+            'posX' => request('posX'),
+            'posY' => request('posY'),
+            'room_id' => request('room')
         ]);
 
         // TODO: Create brodcast event here so location updates for everyone
     }
 
-    public static function locations()
+    public static function locations(): JsonResponse
     {
-
+        return response()->json([
+            'colleagues' => User::query()->where('id', '!=', session('user'))->get(),
+            'user' => User::query()->where('id', session('user'))->first(),
+        ]);
     }
 }

@@ -2,34 +2,30 @@ import $ from 'jquery';
 import 'jquery-ui/dist/jquery-ui.min.js'
 import { moveBlob } from "./functions/moveBlob";
 
-$( document ).ready(() => {
-    const office = $( '#office' );
-    const room = $( '.room' )
-    const userBlob = $( '#user' );
+let USER_BLOB = $( '#user' );
+const OFFICE = $( '#office' );
+const ROOM = $( '.room' );
 
-    room.droppable({
-        accept: userBlob,
-        over: function(e) {
-            let id = $(this).attr('id');
-            office.find(`.room[id=${id}]`).addClass('hovering');
-        },
-        out: function(e) {
-            let id = $(this).attr('id');
-            office.find(`.room[id=${id}]`).removeClass('hovering');
-        },
-        drop: function(e) {
-            let id = $(this).attr('id');
-        }
-    });
+ROOM.droppable({
+    accept: USER_BLOB,
+    over: function() {
+        let ROOM_ID = $(this).attr('id');
+        OFFICE.find(`.room[id=${ROOM_ID}]`).addClass('hovering');
+    },
+    out: function() {
+        let ROOM_ID = $(this).attr('id');
+        OFFICE.find(`.room[id=${ROOM_ID}]`).removeClass('hovering');
+    },
+    drop: function() {
+        let ROOM_ID = $(this).attr('id');
+        let POS_X = (parseInt(USER_BLOB.css('left')) / OFFICE.width()) * 100;
+        let POS_Y = (parseInt(USER_BLOB.css('top')) / OFFICE.height()) * 100;
+        moveBlob(POS_X, POS_Y, ROOM_ID);
+    }
+});
 
-    userBlob.draggable({
-        containment: office,
-        snap: room,
-        snapTolerance: 30,
-        stop: function(e) {
-            let posX = (parseInt(userBlob.css('left')) / office.width()) * 100;
-            let posY = (parseInt(userBlob.css('top')) / office.height()) * 100;
-            moveBlob(posX, posY);
-        }
-    });
+USER_BLOB.draggable({
+    containment: OFFICE,
+    snap: ROOM,
+    snapTolerance: 30,
 });

@@ -13,5 +13,5 @@ window.selectAvatar = selectAvatar;
 
 $( document ).ready(() => {
     loadAvatars();
-    loadAllBlobs()
+    loadAllBlobs();
 });
