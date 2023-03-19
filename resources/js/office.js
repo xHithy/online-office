@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import 'jquery-ui/dist/jquery-ui.min.js'
+import { moveBlob } from "./functions/moveBlob";
 
 $( document ).ready(() => {
     const office = $( '#office' );
@@ -18,7 +19,6 @@ $( document ).ready(() => {
         },
         drop: function(e) {
             let id = $(this).attr('id');
-            console.log(id);
         }
     });
 
@@ -27,10 +27,9 @@ $( document ).ready(() => {
         snap: room,
         snapTolerance: 30,
         stop: function(e) {
-            let blobTopLocation = parseInt(userBlob.css('top'));
-            let blobLeftLocation = parseInt(userBlob.css('left'));
-            console.log((blobTopLocation / office.height()) * 100);
-            console.log((blobLeftLocation / office.width()) * 100);
+            let posX = (parseInt(userBlob.css('left')) / office.width()) * 100;
+            let posY = (parseInt(userBlob.css('top')) / office.height()) * 100;
+            moveBlob(posX, posY);
         }
     });
 });

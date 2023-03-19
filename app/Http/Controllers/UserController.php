@@ -26,8 +26,10 @@ class UserController extends Controller
         }
 
         $user = User::query()->create([
-           'name' => request('name'),
-           'avatar_id' => request('avatar'),
+            'name' => request('name'),
+            'avatar_id' => request('avatar'),
+            'posX' => 0,
+            'posY' => 0
         ]);
 
         // Set user ID as session variable so it can be used for validation/authentication
@@ -45,5 +47,20 @@ class UserController extends Controller
         session()->forget('user');
 
         return redirect(route('landing'));
+    }
+
+    public static function move()
+    {
+        User::query()->where('id', session('user'))->update([
+           'posX' => request('posX'),
+           'posY' => request('posY'),
+        ]);
+
+        // TODO: Create brodcast event here so location updates for everyone
+    }
+
+    public static function locations()
+    {
+
     }
 }
