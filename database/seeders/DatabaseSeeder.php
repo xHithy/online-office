@@ -14,6 +14,12 @@ class DatabaseSeeder extends Seeder
     {
         DB::table('rooms')->insert([
             [
+                'room' => 'Global',
+                'slug' => 'global',
+                'limit' => 50,
+                'users_in' => 0,
+            ],
+            [
                 'room' => 'The Office',
                 'slug' => 'the-office',
                 'limit' => 4,

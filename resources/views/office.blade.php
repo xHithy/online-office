@@ -51,7 +51,8 @@
         </div>
         <div class="office-container flex jc-c ai-c p">
             <div id="office">
-                <div class="user" id="user" draggable="true"><span>You</span><img src="/avatars/avatar-{{$avatar_id}}.svg" alt=""/></div>
+                <div class="user" id="user" draggable="true"></div>
+                <div class="default-room room" id="0"></div>
                 <div class="the-office room" id="1"></div>
                 <div class="meeting-room room" id="7"></div>
                 <div class="desk room" id="10"></div>
