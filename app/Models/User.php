@@ -14,6 +14,8 @@ class User extends Model
     protected $fillable = [
         'name',
         'avatar_id',
-        'room_id'
+        'room_id',
+        'posX',
+        'posY'
     ];
 }
