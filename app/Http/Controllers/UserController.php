@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CreateBlob;
+use App\Events\MoveBlob;
+use App\Events\RemoveBlob;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\RedirectResponse;
@@ -33,6 +36,8 @@ class UserController extends Controller
             'posY' => 0
         ]);
 
+        event(new CreateBlob($user['id'], $user['avatar_id'], $user['name']));
+
         // Set user ID as session variable so it can be used for validation/authentication
         session(['user' => $user['id']]);
 
@@ -43,6 +48,8 @@ class UserController extends Controller
     {
         // Delete the user from the database
         User::query()->where('id', session('user'))->delete();
+
+        event(new RemoveBlob(session('user')));
 
         // Remove the verification session
         session()->forget('user');
@@ -58,7 +65,9 @@ class UserController extends Controller
             'room_id' => request('room')
         ]);
 
-        // TODO: Create brodcast event here so location updates for everyone
+        $user = User::query()->where('id', session('user'))->first();
+
+        event(new MoveBlob($user['posX'], $user['posY'], session('user')));
     }
 
     public static function locations(): JsonResponse

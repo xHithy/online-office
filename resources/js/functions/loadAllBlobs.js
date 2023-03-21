@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {createBlob} from "./createBlob";
 
 export const loadAllBlobs = () => {
     const OFFICE = $( '#office' );
@@ -13,9 +14,9 @@ export const loadAllBlobs = () => {
                 let AVATAR = colleague.avatar_id;
                 let POS_X = colleague.posX;
                 let POS_Y = colleague.posY;
-                OFFICE.append(`<div class="colleague" id="${ID}"><span>${NAME}</span><img src="/avatars/avatar-${AVATAR}.svg" alt=""/></div>`);
+                createBlob(ID, AVATAR, NAME);
 
-                let BLOB = $( '.colleague[id=' + ID + ']' );
+                let BLOB = $( `.id-${ID}` );
                 BLOB.css('left', parseInt(POS_X) + '%');
                 BLOB.css('top', parseInt(POS_Y) + '%');
             });
