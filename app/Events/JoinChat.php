@@ -8,24 +8,22 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class MoveBlob implements ShouldBroadcastNow
+class JoinChat implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public function __construct(public $pos_x, public $pos_y, public $id, public $room_id) {}
+    public function __construct(public $username, public $room_id) {}
 
     public function broadcastWith(): array
     {
         return [
-            $this->pos_x,
-            $this->pos_y,
-            $this->id,
+            $this->username,
             $this->room_id
         ];
     }
 
     public function broadcastOn(): Channel
     {
-        return new Channel('office');
+        return new Channel('chat.'.$this->room_id);
     }
 }
