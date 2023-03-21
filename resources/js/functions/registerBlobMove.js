@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import { joinRoom } from "./joinRoom";
 
 export const registerBlobMove = (POS_X, POS_Y, ROOM_ID) => {
     $.ajax({
@@ -10,4 +11,5 @@ export const registerBlobMove = (POS_X, POS_Y, ROOM_ID) => {
             room: ROOM_ID
         },
     });
+    joinRoom(window.room_id, ROOM_ID);
 }
