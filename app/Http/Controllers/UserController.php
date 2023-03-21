@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Events\CreateBlob;
+use App\Events\JoinChat;
+use App\Events\LeaveChat;
 use App\Events\MoveBlob;
 use App\Events\RemoveBlob;
 use App\Models\Room;
@@ -82,7 +84,7 @@ class UserController extends Controller
         ]);
 
         if($room_id == $old_room['id']) {
-            event(new MoveBlob($pos_x, $pos_y, session('user')));
+            event(new MoveBlob($pos_x, $pos_y, session('user'), $room_id));
             return 0;
         }
 
@@ -96,7 +98,9 @@ class UserController extends Controller
            'users_in' => $old_room['users_in'] - 1
         ]);
 
-        return event(new MoveBlob($pos_x, $pos_y, session('user')));
+        event(new LeaveChat($pre_update_user['name'], $old_room['id']));
+        event(new JoinChat($pre_update_user['name'], $room_id));
+        event(new MoveBlob($pos_x, $pos_y, session('user'), $room_id));
     }
 
     public static function locations(): JsonResponse

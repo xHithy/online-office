@@ -52,7 +52,7 @@
         <div class="office-container flex jc-c ai-c p">
             <div id="office">
                 <div class="user" id="user" draggable="true"></div>
-                <div class="default-room room" id="1"></div>
+{{--                <div class="default-room room" id="1"></div>--}}
                 <div class="the-office room" id="2"></div>
                 <div class="meeting-room room" id="8"></div>
                 <div class="desk room" id="11"></div>

@@ -6,3 +6,7 @@ use Illuminate\Support\Facades\Broadcast;
 Broadcast::channel('office', function() {
     return true;
 });
+
+Broadcast::channel('chat.{room_id}', function () {
+    return true;
+});

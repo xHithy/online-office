@@ -3,7 +3,7 @@ import 'jquery-ui/dist/jquery-ui.min.js'
 import { registerBlobMove } from "./functions/registerBlobMove";
 import { moveBlob } from "./functions/moveBlob";
 import { createBlob } from "./functions/createBlob";
-import {removeBlob} from "./functions/removeBlob";
+import { removeBlob } from "./functions/removeBlob";
 
 let USER_BLOB = $( '#user' );
 const OFFICE = $( '#office' );
@@ -35,7 +35,7 @@ USER_BLOB.draggable({
 
 window.Echo.channel('office')
     .listen('MoveBlob', (response) => {
-        moveBlob(response[0], response[1], response[2]);
+        moveBlob(response[0], response[1], response[2], response[3]);
     })
     .listen('CreateBlob', (response) => {
         createBlob(response[0], response[1], response[2]);
