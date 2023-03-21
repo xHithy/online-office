@@ -16,8 +16,8 @@ return new class extends Migration
             $table->string('name');
             $table->integer('avatar_id');
             $table->integer('room_id')->nullable();
-            $table->decimal('posX');
-            $table->decimal('posY');
+            $table->string('posX');
+            $table->string('posY');
         });
     }
 
