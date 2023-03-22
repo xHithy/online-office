@@ -1,5 +1,6 @@
 import $ from 'jquery';
 import { joinRoom } from "./joinRoom";
+import {loadChat} from "./loadChat";
 
 export const registerBlobMove = (POS_X, POS_Y, ROOM_ID) => {
     $.ajax({
@@ -10,6 +11,9 @@ export const registerBlobMove = (POS_X, POS_Y, ROOM_ID) => {
             posY: POS_Y,
             room: ROOM_ID
         },
+        success: function() {
+            joinRoom(window.room_id, ROOM_ID);
+            loadChat(ROOM_ID);
+        }
     });
-    joinRoom(window.room_id, ROOM_ID);
 }

@@ -1,6 +1,7 @@
 import $ from 'jquery';
 import { createBlob } from "./createBlob";
 import { joinRoom } from "./joinRoom";
+import {loadChat} from "./loadChat";
 
 export const loadAllBlobs = () => {
     const OFFICE = $( '#office' );
@@ -32,6 +33,7 @@ export const loadAllBlobs = () => {
             let USER_DATA = `<span>You</span><img src="/avatars/avatar-${AVATAR}.svg" alt=""/>`
 
             joinRoom(window.room_id, ROOM_ID);
+            loadChat(ROOM_ID);
 
             $( USER_DATA ).appendTo( '#user' );
             $( USER_BLOB ).css('left', parseInt(POS_X) + '%');
