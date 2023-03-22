@@ -7,6 +7,7 @@ use App\Events\JoinChat;
 use App\Events\LeaveChat;
 use App\Events\MoveBlob;
 use App\Events\RemoveBlob;
+use App\Models\Message;
 use App\Models\Room;
 use App\Models\User;
 use Illuminate\Http\JsonResponse;
@@ -86,6 +87,11 @@ class UserController extends Controller
         if($room_id == $old_room['id']) {
             event(new MoveBlob($pos_x, $pos_y, session('user'), $room_id));
             return 0;
+        }
+
+        // If the old room user count is zero, then delete all the messages for the channel
+        if($old_room['users_in'] - 1 <= 0) {
+            Message::query()->where('room_id', $old_room['id'])->delete();
         }
 
         // Increment user count by one to the room that user just joined
