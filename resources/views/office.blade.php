@@ -9,7 +9,7 @@
 </head>
 <body>
     <div class="main-container flex">
-        <div class="side-container flex col gap p">
+        <div class="side-container flex col jc-sb gap p">
             <div class="session-container flex col gap p">
                 <div class="flex gap ai-c">
                     <div class="user-avatar">
@@ -43,9 +43,9 @@
                         <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem maiores optio similique ullam.</span>
                     </div>
                 </div>
-                <form class="flex gap" method="POST">
-                    <input placeholder="Send a message..." type="text" />
-                    <button class="flex jc-c ai-c" type="submit"><img src="/icons/send.svg" alt=""</button>
+                <form class="message-form flex gap" method="POST">
+                    <input class="message-text" placeholder="Send a message..." type="text" min="1" max="100" required/>
+                    <button class="flex jc-c ai-c" type="submit"><img src="/icons/send.svg" alt=""/></button>
                 </form>
             </div>
         </div>
