@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Room extends Model
 {
@@ -17,4 +18,9 @@ class Room extends Model
         'limit',
         'users_in'
     ];
+
+    public function users(): HasMany
+    {
+        return $this->hasMany(User::class, 'room_id', 'id');
+    }
 }
