@@ -1,6 +1,6 @@
 # Online Office
 This is a UWDC2023 task. The task was given to the competitors during the event.
-The time given for the task was 6 hours.
+The time given for the task was 6 hours. For this I used Laravel and good old JQuery
 
 ## Installation steps
 For the project to run, you will need to install Docker.
