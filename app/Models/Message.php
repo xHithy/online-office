@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class Message extends Model
 {
@@ -17,4 +18,9 @@ class Message extends Model
         'room_id',
         'timestamp'
     ];
+
+    public function author(): HasOne
+    {
+        return $this->hasOne(User::class, 'id', 'user_id');
+    }
 }

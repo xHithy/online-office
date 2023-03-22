@@ -16,4 +16,5 @@ Route::prefix('/v1/office')->middleware('verify.user')->group(function() {
 
 Route::prefix('/v1/messages')->middleware('verify.user')->group(function() {
    Route::get('/{room}', [MessageController::class, 'messages']);
+   Route::post('', [MessageController::class, 'sendMessage']);
 });
