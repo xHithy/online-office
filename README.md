@@ -2,6 +2,9 @@
 This is a UWDC2023 task. The task was given to the competitors during the event.
 The time given for the task was 6 hours. For this I used Laravel and good old JQuery
 
+## Notes for testing
+Because the application uses session authentication, to test two users real-time, you should use one browser and one incognito browser, so sessions dont overlap eachother
+
 ## Installation steps
 For the project to run, you will need to install Docker.
 
