@@ -3,6 +3,7 @@ import './bootstrap';
 import '../css/main.scss';
 import './functions/selectAvatar';
 import './office';
+import './functions/sendMessage';
 
 // Functions
 import { loadAvatars } from "./functions/loadAvatars";

@@ -1,4 +1,5 @@
 import $ from 'jquery';
+import {appendMessage} from "./appendMessage";
 
 export const loadChat = (ROOM_ID) => {
     $.ajax({
@@ -8,7 +9,11 @@ export const loadChat = (ROOM_ID) => {
             let ROOM_DATA = data.room;
             let MESSAGES = data.messages;
             $( '#chat-title' ).html(ROOM_DATA.room);
-            console.log(ROOM_DATA);
+            // Purge old room chat from UI
+            $( '.chat .message-container' ).remove();
+            MESSAGES.forEach(message => {
+                appendMessage(message.author.name, message.message);
+            });
         }
     });
 }

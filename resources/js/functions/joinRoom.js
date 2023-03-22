@@ -1,3 +1,5 @@
+import {appendMessage} from "./appendMessage";
+
 export const joinRoom = (PREVIOUS_ROOM_ID, NEW_ROOM_ID) => {
     window.Echo.leaveChannel('chat.' + PREVIOUS_ROOM_ID);
     window.Echo.channel('chat.' + NEW_ROOM_ID)
@@ -12,6 +14,9 @@ export const joinRoom = (PREVIOUS_ROOM_ID, NEW_ROOM_ID) => {
             if(parseInt(response[1]) !== 1) {
                 console.log(response[0] + ' has left the room');
             }
+        })
+        .listen('SendMessage', (response) => {
+            appendMessage(response[0], response[1]);
         });
 
     // Set new room as global room
