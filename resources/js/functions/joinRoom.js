@@ -1,4 +1,5 @@
-import {appendMessage} from "./appendMessage";
+import { appendMessage } from "./appendMessage";
+import { appendChatNotification } from "./appendChatNotification";
 
 export const joinRoom = (PREVIOUS_ROOM_ID, NEW_ROOM_ID) => {
     window.Echo.leaveChannel('chat.' + PREVIOUS_ROOM_ID);
@@ -6,13 +7,13 @@ export const joinRoom = (PREVIOUS_ROOM_ID, NEW_ROOM_ID) => {
         .listen('JoinChat', (response) => {
             // Ignore default room events
             if(parseInt(response[1]) !== 1) {
-                console.log(response[0] + ' has joined the room');
+                appendChatNotification(response[0], 'joined');
             }
         })
         .listen('LeaveChat', (response) => {
             // Ignore default room events
             if(parseInt(response[1]) !== 1) {
-                console.log(response[0] + ' has left the room');
+                appendChatNotification(response[0], 'left');
             }
         })
         .listen('SendMessage', (response) => {

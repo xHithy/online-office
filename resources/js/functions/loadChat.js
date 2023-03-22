@@ -11,6 +11,7 @@ export const loadChat = (ROOM_ID) => {
             $( '#chat-title' ).html(ROOM_DATA.room);
             // Purge old room chat from UI
             $( '.chat .message-container' ).remove();
+            $( '.chat .chat-notification' ).remove();
             MESSAGES.forEach(message => {
                 appendMessage(message.author.name, message.message);
             });
