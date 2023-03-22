@@ -38,10 +38,6 @@
                 <b><span id="chat-title">Global</span> chat</b>
                 <div class="chat flex col gap p">
                     <div class="start flex ai-c gap"><span class="line"></span> This is the start of this chat <span class="line"></span></div>
-                    <div class="message-container">
-                        <span class="message-author">John</span>
-                        <span class="message-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem maiores optio similique ullam.</span>
-                    </div>
                 </div>
                 <form class="message-form flex gap" method="POST">
                     <input class="message-text" placeholder="Send a message..." type="text" min="1" max="100" required/>
