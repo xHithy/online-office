@@ -26,18 +26,14 @@
             </div>
             <span class="line"></span>
             <div class="room-container flex col gap p">
-                @foreach($rooms as $room)
-                    <div class="single-room flex jc-sb gap" data-id="{{$room['id']}}">
-                        <span> {{ $room['room'] }} </span>
-                        <span class="room-capacity"> {{ $room['users_in'] }} / {{ $room['limit'] }}</span>
-                    </div>
-                @endforeach
+                <!-- JS loads rooms and their status --->
             </div>
             <span class="line"></span>
             <div class="chat-container flex col gap p">
                 <b><span id="chat-title">Global</span> chat</b>
                 <div class="chat flex col gap p">
                     <div class="start flex ai-c gap"><span class="line"></span> This is the start of this chat <span class="line"></span></div>
+                    <!-- JS loads chat --->
                 </div>
                 <form class="message-form flex gap" method="POST">
                     <input class="message-text" placeholder="Send a message..." type="text" min="1" max="100" required/>

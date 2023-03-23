@@ -1,7 +1,8 @@
 import $ from 'jquery';
 import { createBlob } from "./createBlob";
 import { joinRoom } from "./joinRoom";
-import {loadChat} from "./loadChat";
+import { loadChat } from "./loadChat";
+import { updateRoomStatus } from "./updateRoomStatus";
 
 export const loadAllBlobs = () => {
     const OFFICE = $( '#office' );
@@ -32,8 +33,11 @@ export const loadAllBlobs = () => {
             let ROOM_ID = locations.user.room_id;
             let USER_DATA = `<span>You</span><img src="/avatars/avatar-${AVATAR}.svg" alt=""/>`
 
+            window.room_id = ROOM_ID;
+
             joinRoom(window.room_id, ROOM_ID);
             loadChat(ROOM_ID);
+            updateRoomStatus();
 
             $( USER_DATA ).appendTo( '#user' );
             $( USER_BLOB ).css('left', parseInt(POS_X) + '%');
