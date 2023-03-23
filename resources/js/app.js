@@ -9,10 +9,12 @@ import './functions/sendMessage';
 import { loadAvatars } from "./functions/loadAvatars";
 import { selectAvatar } from "./functions/selectAvatar";
 import { loadAllBlobs } from "./functions/loadAllBlobs";
+import { sessionTime } from "./functions/sessionTime";
 
 window.selectAvatar = selectAvatar;
 
 $( document ).ready(() => {
     loadAvatars();
     loadAllBlobs();
+    sessionTime();
 });

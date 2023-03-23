@@ -42,7 +42,8 @@ class UserController extends Controller
             'room_id' => 1,
             'avatar_id' => request('avatar'),
             'posX' => 0,
-            'posY' => 0
+            'posY' => 0,
+            'joined_at' => time()
         ]);
 
         // Increment user count by one in the default room
@@ -70,6 +71,12 @@ class UserController extends Controller
         session()->forget('user');
 
         return redirect(route('landing'));
+    }
+
+    public static function sessionLength(): JsonResponse
+    {
+        $user = User::query()->where('id', session('user'))->first();
+        return response()->json($user['joined_at']);
     }
 
     public static function move()

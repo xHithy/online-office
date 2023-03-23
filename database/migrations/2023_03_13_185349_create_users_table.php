@@ -18,6 +18,7 @@ return new class extends Migration
             $table->integer('room_id')->nullable();
             $table->string('posX');
             $table->string('posY');
+            $table->integer('joined_at');
         });
     }
 

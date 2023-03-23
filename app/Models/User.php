@@ -16,6 +16,7 @@ class User extends Model
         'avatar_id',
         'room_id',
         'posX',
-        'posY'
+        'posY',
+        'joined_at'
     ];
 }
