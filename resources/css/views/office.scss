@@ -35,6 +35,7 @@
             font-weight:700;
         }
         .user-list {
+            gap:5px;
             span {
                 display:flex;
                 align-items:center;
@@ -42,6 +43,8 @@
                 img {
                     width:25px;
                     height:25px;
+                    outline:2px solid $accent-color;
+                    border-radius:50%;
                 }
                 margin-left:10px;
             }
