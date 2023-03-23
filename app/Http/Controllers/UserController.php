@@ -62,6 +62,12 @@ class UserController extends Controller
 
     public static function logout(): RedirectResponse
     {
+        $user = User::query()->where('id', session('user'))->first();
+        $room = Room::query()->where('id', $user['room_id'])->first();
+        Room::query()->where('id', $user['room_id'])->update([
+            'users_in' => $room['users_in'] - 1,
+        ]);
+
         // Delete the user from the database
         User::query()->where('id', session('user'))->delete();
 

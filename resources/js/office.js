@@ -49,5 +49,6 @@ window.Echo.channel('office')
     })
     .listen('RemoveBlob', (response) => {
         removeBlob(response[0]);
+        updateRoomStatus();
     });
 
