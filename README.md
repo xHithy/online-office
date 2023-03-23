@@ -2,6 +2,10 @@
 This is a UWDC2023 task. The task was given to the competitors during the event.
 The time given for the task was 6 hours. For this I used Laravel and good old JQuery
 
+During and after development, I've found many flaws and bugs, and overall the project has a really bad code quality. 
+But my initial idea behind it was to just 'make it work' and test new waters, 
+especially with websockets, because a lot of the things used in this project were new to me.
+
 ## Notes for testing
 Because the application uses session authentication, to test two users real-time, you should use one browser and one incognito browser, so sessions dont overlap eachother
 
