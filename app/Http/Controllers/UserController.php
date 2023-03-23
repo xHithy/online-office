@@ -17,9 +17,13 @@ use Illuminate\View\View;
 
 class UserController extends Controller
 {
-    public static function index(): View
+    public static function index(): RedirectResponse|View
     {
-        return view('landing');
+        if(session('user')) {
+            return redirect(route('office'));
+        } else {
+            return view('landing');
+        }
     }
 
     public static function login(): RedirectResponse
