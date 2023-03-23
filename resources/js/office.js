@@ -4,10 +4,15 @@ import { registerBlobMove } from "./functions/registerBlobMove";
 import { moveBlob } from "./functions/moveBlob";
 import { createBlob } from "./functions/createBlob";
 import { removeBlob } from "./functions/removeBlob";
+import { sessionTime } from "./functions/sessionTime";
 
 let USER_BLOB = $( '#user' );
 const OFFICE = $( '#office' );
 const ROOM = $( '.room' );
+
+setInterval(() => {
+    sessionTime();
+}, 60000);
 
 ROOM.droppable({
     accept: USER_BLOB,
