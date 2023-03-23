@@ -5,6 +5,7 @@ import { loadChat } from "./loadChat";
 import { updateRoomStatus } from "./updateRoomStatus";
 
 export const loadAllBlobs = () => {
+    console.log('Loading all blobs');
     const OFFICE = $( '#office' );
     $.ajax({
         type: 'GET',
@@ -33,7 +34,12 @@ export const loadAllBlobs = () => {
             let ROOM_ID = locations.user.room_id;
             let USER_DATA = `<span>You</span><img src="/avatars/avatar-${AVATAR}.svg" alt=""/>`
 
+            USER_BLOB.addClass(`id-${locations.user.id}`);
+            window.USER_ID = locations.user.id;
             window.room_id = ROOM_ID;
+            window.PREV_X = POS_X;
+            window.PREV_Y = POS_Y;
+            window.PREV_ROOM = ROOM_ID;
 
             joinRoom(window.room_id, ROOM_ID);
             loadChat(ROOM_ID);

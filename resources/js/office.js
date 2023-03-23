@@ -5,8 +5,9 @@ import { moveBlob } from "./functions/moveBlob";
 import { createBlob } from "./functions/createBlob";
 import { removeBlob } from "./functions/removeBlob";
 import { sessionTime } from "./functions/sessionTime";
+import { updateRoomStatus } from "./functions/updateRoomStatus";
 
-let USER_BLOB = $( '#user' );
+const USER_BLOB = $( '#user' );
 const OFFICE = $( '#office' );
 const ROOM = $( '.room' );
 
@@ -40,10 +41,11 @@ USER_BLOB.draggable({
 
 window.Echo.channel('office')
     .listen('MoveBlob', (response) => {
-        moveBlob(response[0], response[1], response[2], response[3]);
+        moveBlob(response[0], response[1], response[2]);
     })
     .listen('CreateBlob', (response) => {
         createBlob(response[0], response[1], response[2]);
+        updateRoomStatus();
     })
     .listen('RemoveBlob', (response) => {
         removeBlob(response[0]);

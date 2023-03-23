@@ -89,21 +89,27 @@ class UserController extends Controller
         $old_room = Room::query()->where('id', $pre_update_user['room_id'])->first();
         $new_room = Room::query()->where('id', $room_id)->first();
 
-        User::query()->where('id', session('user'))->update([
-            'posX' => $pos_x,
-            'posY' => $pos_y,
-            'room_id' => $room_id
-        ]);
-
         if($room_id == $old_room['id']) {
-            event(new MoveBlob($pos_x, $pos_y, session('user'), $room_id));
-            return 0;
+            return event(new MoveBlob($pos_x, $pos_y, session('user'), $room_id));
         }
 
         // If the old room user count is zero, then delete all the messages for the channel
         if($old_room['users_in'] - 1 <= 0) {
             Message::query()->where('room_id', $old_room['id'])->delete();
         }
+
+        if($new_room['users_in'] + 1  > $new_room['limit']) {
+            return response()->json([
+                'success' => 'full'
+            ]);
+        }
+
+        // If the checks have passed, then update user with the new room ID
+        User::query()->where('id', session('user'))->update([
+            'posX' => $pos_x,
+            'posY' => $pos_y,
+            'room_id' => $room_id
+        ]);
 
         // Increment user count by one to the room that user just joined
         Room::query()->where('id', $room_id)->update([
